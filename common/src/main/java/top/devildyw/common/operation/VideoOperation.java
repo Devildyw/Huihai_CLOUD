@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.Java2DFrameConverter;
-import top.devildyw.common.exception.QiwenException;
+import top.devildyw.common.exception.BaseException;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -21,7 +21,7 @@ public class VideoOperation {
     public static InputStream thumbnailsImage(InputStream inputStream, File outFile, int width, int height) throws IOException {
 
         if (inputStream == null) {
-            throw new QiwenException(999999, "Get the video preview. The input stream is null.");
+            throw new BaseException(999999, "Get the video preview. The input stream is null.");
         }
         try {
             FFmpegFrameGrabber ff = new FFmpegFrameGrabber(inputStream);
